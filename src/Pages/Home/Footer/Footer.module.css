@@ -1,0 +1,23 @@
+.Footer {
+    background-color: #f7f7f7;
+    background-image: url(https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/10/footer-main-bg-1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    /* background-size: contain; */
+    background-attachment: inherit;
+    height: auto;
+    width: 100%;
+    color: blanchedalmond;
+    padding-top: 7rem;
+
+}
+.Footer a i{
+    font-size: 2rem;
+    color: #C59D5F;
+}
+.dates{
+    color: #C59D5F;
+    font-size: 0.8rem;
+    margin-top: -12px;
+}

@@ -1,0 +1,93 @@
+.Shop{
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+.ShopHeader{
+    background-image: url(https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/09/page-title-main.jpg);
+    background-repeat: no-repeat;
+    background-color: rgba(167, 166, 166, 0.582);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height:40vh;
+    position: relative;
+    display: block;
+    transition: all 0.54s ease-in-out;
+}
+.backContainer{
+    height:100%;
+    width:40%;
+    transition: all 0.54s ease-in-out;
+}
+.ShopTypingBox{
+    width: 100%;
+    height: 50%;
+    color: rgb(247, 247, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.54s ease-in-out;
+    position: absolute;
+    top: 35%;
+}
+.shoppingList{
+    font-size: 2rem;
+    background: #C59D5F;
+    width: 80px;
+    height: 80px;
+    color: rgb(8,21,40);
+    border-radius: 61px;
+    padding: 0.5rem;
+    top: 86%;
+    left: 91%;
+    text-align: center;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.shoppingList:hover{
+    background: rgb(8,21,40);
+    color: #C59D5F;
+    /* transition: all 0.5s ease-in-out; */
+}
+.shoppingList:active{
+    transition: all 0.5s ease-in-out;
+    opacity: 0.9;
+    transform:scale(0.7)
+}
+.pubble{
+    transform: scale(0.8);
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+.IconNum{
+    position: absolute;
+    top: 0;
+    color: #c59d5f;
+    right: -3px;
+    background: #081528;
+    width: 22px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 0;
+}
+@media (max-width: 850px){
+    .shoppingList {
+        left: 88%;
+    }
+}
+@media (max-width: 590px){
+    .shoppingList {
+        left: 80%;
+    }
+}
+@media (max-width: 350px){
+    .shoppingList {
+        left: 75%;
+    }
+}

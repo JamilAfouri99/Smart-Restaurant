@@ -1,0 +1,68 @@
+.ul-modal{
+    padding: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: -1rem;
+    margin-top: -1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 0;
+}
+/* .li-modal{
+    padding: 10px 1px 15px 1px;
+} */
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 602px !important;
+    margin: 1.75rem auto;
+}}
+.modal-body{
+    max-height: 20rem !important;
+    overflow: auto !important;
+}
+
+.footer{
+    display: flex !important;
+    justify-content: space-between !important;
+}
+.Price{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #C59D5F;
+    margin: 0;
+    padding-top: -17px;
+    margin-bottom: 6px;
+}
+.btnCustom {
+    color: #fff;
+    background-color: #081528 !important;
+    border-color: #081528 !important;
+    
+}
+.btnCustom:hover {
+    color: #fff !important;
+    opacity: 0.9;
+}
+.btnCustom:active {
+    transform: scale(0.97);
+}
+.controlFooter{
+    width:45% !important;
+    
+}
+.priceFooter{
+    width:50% !important;
+}
+
+@media screen and (max-width:460px) {
+    .controlFooter{
+        width:57% !important;
+        
+    }
+    .priceFooter{
+        justify-content: left;
+        width:35% !important;
+        text-align: left;
+        padding-right: 5%;
+    }
+}

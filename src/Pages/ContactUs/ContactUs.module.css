@@ -1,0 +1,85 @@
+.ContactUsHeader{
+    background-image: url(https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/09/page-title-main.jpg);
+    background-repeat: no-repeat;
+    background-color: rgba(167, 166, 166, 0.582);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height:40vh;
+    position: relative;
+    display: block;
+    transition: all 0.54s ease-in-out;
+}
+.backContainer{
+    height:100%;
+    width:40%;
+    transition: all 0.54s ease-in-out;
+}
+.ContactUsTypingBox{
+    width: 100%;
+    height: 50%;
+    color: rgb(247, 247, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.54s ease-in-out;
+    position: absolute;
+    top: 35%;
+}
+.FormBack{
+    position: relative;
+    box-sizing: border-box;
+    height: auto; 
+    padding-top: 0px !important;
+    padding-bottom: 70px !important;
+    background-image: url(https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/09/about-bg-1.png?id=6705) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background: fixed;
+}
+.btnCustom {
+    color: #fff;
+    background-color: #081528 !important;
+    border-color: #081528 !important;
+}
+.btnCustom:hover {
+    color: #fff !important;
+    opacity: 0.9;
+}
+.btnCustom:active {
+    transform: scale(0.97);
+}
+.notValid{
+    background: #ff00002b;
+    border: 3px solid #ed0000ab;
+    transition: all 0.2s ease-in-out;
+}
+.Valid{
+    background: #b3e0aa47;
+    border: 3px solid #059300ab;
+    transition: all 0.2s ease-in-out;
+}
+.BeforeCheck{
+    background: none;
+    border: 1px solid #b7b7b7;
+    transition: all 0.2s ease-in-out;
+}
+.formContainer{
+    width:60% !important;
+    transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width:990px) {
+    .formContainer{
+        width:80% !important;
+        transition: all 0.3s ease-in-out;
+    }
+}
+@media screen and (max-width:700px) {
+    .formContainer{
+        width:90% !important;
+        transition: all 0.3s ease-in-out;
+    }
+}

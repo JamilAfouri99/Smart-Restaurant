@@ -1,0 +1,72 @@
+.NumBody{
+    padding-top: 70px !important;
+    padding-bottom: 35px !important;
+    background-image: url(https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/09/slider-3-44.jpg?id=6817) !important;
+    background-position: center;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    height: auto;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.counterSuffix{
+    color:#C59D5F !important
+}
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.NumBody div div div div img{
+    transition: all 0.5s ease-in-out;
+}
+.NumBody div div div div img:hover{
+    transition: all 0.5s ease-in-out;
+    transform:scale(1.2)
+}
+
+/* Start Animation Numbers  */
+@property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+
+.award {
+    transition: --num 4s;
+    counter-set: num var(--num);
+    font: 500 30px system-ui;
+    --num: 120;
+}
+.award::after {
+    content: counter(num);
+}
+.staff {
+    transition: --num 5s;
+    counter-set: num var(--num);
+    font: 500 30px system-ui;
+    --num: 354;
+}
+.staff::after {
+    content: counter(num);
+}
+.branches {
+    transition: --num 6s;
+    counter-set: num var(--num);
+    font: 500 30px system-ui;
+    --num: 580;
+}
+.branches::after {
+    content: counter(num);
+}
+.customers {
+    transition: --num 7s;
+    counter-set: num var(--num);
+    font: 500 30px system-ui;
+    --num: 6205;
+}
+.customers::after {
+    content: counter(num);
+}
+
+/* End Animation Numbers  */

@@ -1,0 +1,198 @@
+.bgLight{
+    width: 100%;
+    position: fixed;
+    display: flex;
+    background-color:rgba(238, 238, 238, 0.171);
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: all 1s ease-in-out;
+    z-index: 4;
+}
+.bgDark{
+    width: 100%;
+    position: fixed;
+    display: flex;
+    background-color:rgb(8 21 40);
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: all 1s ease-in-out;
+    z-index: 4;
+}
+.bgLight .Logo a,.bgDark .Logo a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #C59D5F;
+    font-size: 2rem;
+}
+nav .Links ul{
+    display: flex;
+    flex-direction:row ;
+    list-style-type: none;
+    padding-top: 1rem;
+}
+nav .Links ul a{
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding-left: 1.1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+nav .Links ul a:hover{
+    color: #C59D5F;
+    transition: all 0.3s ease-in-out;
+    text-decoration:transparent;
+    text-decoration-color: rgba(255, 255, 255, 1);
+    
+}
+nav .Links ul a.active{
+    color: #C59D5F;
+}
+.dropList{
+    color: #C59D5F;
+    font-size: 2rem;
+    padding-top: 9px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.dropList:hover i{
+    transition: all 0.3s ease-in-out;
+    filter: opacity(80%);
+    opacity: (0);
+}
+.ThrowList{
+    height: 350px;
+    width: 100%;
+    background: #081528;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+}
+nav .ThrowList ul{
+    display: flex;
+    flex-direction:column ;
+    list-style-type: none;
+    padding-top: 0.3rem;
+}
+nav .ThrowList ul li{
+    padding-top: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+nav .ThrowList ul li a{
+    padding-top: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    /* color: #C59D5F; */
+    color: whitesmoke;
+    padding-left: 1.1rem;
+    font-size: 1.2rem;
+    transition: all 0.1s ease-in-out;
+}
+nav .ThrowList ul li a.active{
+    color: #C59D5F;
+}
+nav .ThrowList ul li a:hover{
+    color: #C59D5F;
+    transition: all 0.1s ease-in-out;
+}
+.hiddenThrowList{
+    height: 0;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+}
+nav .hiddenThrowList ul{
+    display: flex;
+    flex-direction:column ;
+    list-style-type: none;
+    padding-top: 0.3rem;
+}
+nav .hiddenThrowList ul li{
+    padding-top: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+nav .hiddenThrowList ul li a{
+    padding-top: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    /* color: #C59D5F; */
+    color: whitesmoke;
+    padding-left: 1.1rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 840px) {
+    .dropList{
+        display: none;
+        transition: all 0.5s ease-in-out;
+    }
+}
+@media screen and (max-width: 840px) {
+    .Links{
+        display: none;
+        transition: all 0.5s ease-in-out;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .bgLight{
+        width: 100%;
+        position: fixed;
+        display: flex;
+        background-color:rgba(238, 238, 238, 0.171);
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: all 1s ease-in-out;
+        z-index: 4;
+    }
+    .bgDark{
+        width: 100%;
+        position: fixed;
+        display: flex;
+        background-color:rgb(8 21 40);
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: all 1s ease-in-out;
+        z-index: 4;
+    }
+    .bgLight .Logo,.bgDark .Logo{
+        padding-top: 0.7rem;
+    }
+    .bgLight .Logo a,.bgDark .Logo a{
+        font-weight: bold;
+        text-decoration: none;
+        color: #C59D5F;
+        font-size: 1.5rem;
+    }
+    nav .Links ul{
+        display: flex;
+        flex-direction:row ;
+        list-style-type: none;
+        padding-top: 1rem;
+    }
+    nav .Links ul a{
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        padding-left: 1rem;
+        font-size: 0.9rem;
+        transition: all 0.3s ease-in-out;
+    }
+}

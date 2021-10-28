@@ -1,0 +1,32 @@
+.SocialBody{
+    padding-top: 80px !important;
+    padding-bottom: 95px !important;
+    color: black;
+    /* text-align: center; */
+}
+.centeredItems{
+    text-align: -webkit-center;
+}
+.SocialBody div div div img{
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+.SocialBody div div div div{
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.SocialBody div div div div div h5{
+    transition: all 0.5s ease-in-out;
+    color: #2a2a2a;
+}
+.SocialBody div div div div div p{
+    color: #868686;
+}
+.SocialBody div div div div:hover div h5{
+    transition: all 0.5s ease-in-out;
+    color: #C59D5F;
+}
+.SocialBody div div div div:hover img{
+    /* opacity: 0.5; */
+    filter: brightness(50%);
+}

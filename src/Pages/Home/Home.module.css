@@ -1,0 +1,137 @@
+.Home{
+    /* overflow: hidden; */
+    /* overflow: inherit !important; */
+    position: relative;
+    min-height: auto;
+    height: 100%;
+    display: block;
+    background: black;
+    overflow: hidden;
+}
+.BodyHeader{
+    background-image: url('../../assets/Header-1.jpg');
+    background-repeat: no-repeat;
+    background-color: rgba(167, 166, 166, 0.582);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height:100vh;
+    position: relative;
+    display: block;
+    transition: all 0.54s ease-in-out;
+}
+.backContainer{
+    height:100%;
+    width:40%;
+    transition: all 0.54s ease-in-out;
+}
+.HomeTypingBox{
+    width: 100%;
+    height: 40%;
+    background:rgba(167, 166, 166, 0.582);
+    border-radius: 4px;
+    color: rgb(247, 247, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.54s ease-in-out;
+}
+@media screen and (max-width: 960px) {
+    .BodyHeader{
+        background-image: url('../../assets/Header-1.jpg');
+        background-repeat: no-repeat;
+        background-color: rgba(167, 166, 166, 0.582);
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height:70vh;
+        position: relative;
+        display: block;
+        transition: all 0.54s ease-in-out;
+        white-space: pre-wrap;
+    }
+    .HomeTypingBox{
+        width: 100%;
+        height: 40%;
+        background:rgba(167, 166, 166, 0.582);
+        border-radius: 4px;
+        color: rgb(247, 247, 247);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.54s ease-in-out;
+        white-space: pre-wrap;
+    }
+    .HomeTypingBox h1{
+        transition: all 0.54s ease-in-out;
+        font-size: 1.8rem;
+    }
+    .backContainer{
+        transition: all 0.54s ease-in-out;
+        height:100%;
+        width:55%
+    }
+}
+@media screen and (max-width: 600px) {
+    .BodyHeader{
+        background-image: url('../../assets/Header-1.jpg');
+        background-repeat: no-repeat;
+        background-color: rgba(167, 166, 166, 0.582);
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height:50vh;
+        position: relative;
+        display: block;
+        transition: all 0.54s ease-in-out;
+        white-space: pre-wrap;
+    }
+    .HomeTypingBox{
+        width: 100%;
+        height: 40%;
+        background:rgba(167, 166, 166, 0.582);
+        border-radius: 4px;
+        color: rgb(247, 247, 247);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.54s ease-in-out;
+        white-space: pre-wrap;
+    }
+    .HomeTypingBox h1{
+        transition: all 0.54s ease-in-out;
+        font-size: 1.4rem;
+    }
+    .backContainer{
+        transition: all 0.54s ease-in-out;
+        height:100%;
+        width:80%
+    }
+}
+/* CSS Animation  */
+
+.HomeTypingBox {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    /* border-right: 0.2rem solid orange; The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: 2px; /* Adjust as needed */
+    animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite
+}
+
+  /* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+  /* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange };
+}
