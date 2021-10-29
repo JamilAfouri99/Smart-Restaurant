@@ -2,7 +2,7 @@ import Footer from '../Home/Footer/Footer'
 import Header from '../Home/Header/Header'
 import classes from './ContactUs.module.css'
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Prompt } from 'react-router-dom'
 const ContactUs = () => {
     const history = useHistory()
     const [name, setName] = useState('')
@@ -14,6 +14,7 @@ const ContactUs = () => {
     const [isAble, setIsAble] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
+    const [isEntered, setIsEntered] = useState(false)
 
     // Start Validation Data 
     const handleName = (data) => {
@@ -47,6 +48,7 @@ const ContactUs = () => {
     // End Validation Data 
     // Start Send Data 
     const handlePOSTData = async () => {
+        setIsEntered(false)
         setIsLoading(true)
         try {
             const response = await fetch('https://smart-restaurant-2c2d9-default-rtdb.firebaseio.com/contactus.json', {
@@ -66,61 +68,70 @@ const ContactUs = () => {
         setIsLoading(false)
     }
     // End Send Data 
+    const handleFocus = () => {
+        setIsEntered(true)
+    }
+    // const handleFinishFocused = () => {
+    //     setIsEntered(false)
+    // }
     let ContactUsData = <h1>{'Contact Us'.toUpperCase()}</h1>
     return (
-        <div className={classes.ContactUs}>
-            <Header Header={classes.ContactUsHeader} Container={classes.backContainer} TypingBox={classes.ContactUsTypingBox} data={ContactUsData} />
-            <div className={`container pt-4 ${classes.FormBack}`} style={{ width: '100%' }}>
-                <div className={`container py-4 mt-4 ${classes.formContainer} ${!isLoading?'text-left':'text-center'}`}>
+        <>
+            <Prompt when={isEntered} message={()=>'Sure ? You will lose your data if you go back! '}/>
+            <div className={classes.ContactUs}>
+                <Header Header={classes.ContactUsHeader} Container={classes.backContainer} TypingBox={classes.ContactUsTypingBox} data={ContactUsData} />
+                <div className={`container pt-4 ${classes.FormBack}`} style={{ width: '100%' }}>
+                    <div className={`container py-4 mt-4 ${classes.formContainer} ${!isLoading ? 'text-left' : 'text-center'}`}>
 
-                    {/* <!-- Bootstrap 5 starter form --> */}
-                    {isLoading && <div className="spinner-border" style={{width:'3rem',height:'3rem',marginTop:'3rem'}} role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>}
-                    {!isLoading && <form id="contactForm" className='container' onSubmit={handleSubmit}>
+                        {/* <!-- Bootstrap 5 starter form --> */}
+                        {isLoading && <div className="spinner-border" style={{ width: '3rem', height: '3rem', marginTop: '3rem' }} role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>}
+                        {!isLoading && <form id="contactForm" className='container' onSubmit={handleSubmit} onFocus={handleFocus}>
 
-                        {/* <!-- Name input --> */}
-                        <div className="mb-3">
-                            <label className="form-label">Name</label>
-                            <input value={name} className={`form-control ${inName ? classes.notValid : inName == null ? classes.BeforeCheck : classes.Valid}`} id="name" type="text" placeholder="Name" data-sb-validations="required" onChange={handleName} onBlur={handleBlurName} />
-                            {inName && <div style={{ color: '#f30f0f', paddingTop: '0.4rem' }}>Name is required.</div>}
-                        </div>
+                            {/* <!-- Name input --> */}
+                            <div className="mb-3">
+                                <label className="form-label">Name</label>
+                                <input value={name} className={`form-control ${inName ? classes.notValid : inName == null ? classes.BeforeCheck : classes.Valid}`} id="name" type="text" placeholder="Name" data-sb-validations="required" onChange={handleName} onBlur={handleBlurName} />
+                                {inName && <div style={{ color: '#f30f0f', paddingTop: '0.4rem' }}>Name is required.</div>}
+                            </div>
 
-                        {/* <!-- Email address input --> */}
-                        <div className="mb-3">
-                            <label className="form-label">Email Address</label>
-                            <input value={email} className={`form-control ${inEmail ? classes.notValid : inEmail == null ? classes.BeforeCheck : classes.Valid}`} id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required, email" onChange={handleEmail} onBlur={handleBlurEmail} />
-                            {inEmail && <div style={{ color: '#f30f0f', paddingTop: '0.4rem' }}>Email Address Email is not valid.</div>}
-                        </div>
+                            {/* <!-- Email address input --> */}
+                            <div className="mb-3">
+                                <label className="form-label">Email Address</label>
+                                <input value={email} className={`form-control ${inEmail ? classes.notValid : inEmail == null ? classes.BeforeCheck : classes.Valid}`} id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required, email" onChange={handleEmail} onBlur={handleBlurEmail} />
+                                {inEmail && <div style={{ color: '#f30f0f', paddingTop: '0.4rem' }}>Email Address Email is not valid.</div>}
+                            </div>
 
-                        {/* <!-- Message input --> */}
-                        <div className="mb-3">
-                            <label className="form-label">Message</label>
-                            <textarea value={message} className={`form-control ${inMessage ? classes.notValid : inMessage == null ? classes.BeforeCheck : classes.Valid}`} id="message" type="text" placeholder="Message" style={{ height: '10rem' }} data-sb-validations="required" onChange={handleMessage} onBlur={handleBlurMessage}></textarea>
-                            {inMessage && <div style={{ color: '#f30f0f', paddingTop: '0.4rem' }}>Message is required.</div>}
-                        </div>
+                            {/* <!-- Message input --> */}
+                            <div className="mb-3">
+                                <label className="form-label">Message</label>
+                                <textarea value={message} className={`form-control ${inMessage ? classes.notValid : inMessage == null ? classes.BeforeCheck : classes.Valid}`} id="message" type="text" placeholder="Message" style={{ height: '10rem' }} data-sb-validations="required" onChange={handleMessage} onBlur={handleBlurMessage}></textarea>
+                                {inMessage && <div style={{ color: '#f30f0f', paddingTop: '0.4rem' }}>Message is required.</div>}
+                            </div>
 
-                        {/* <!-- Form submissions success message --> */}
-                        <div className="d-none" id="submitSuccessMessage">
-                            <div className="text-center mb-3">Form submission successful!</div>
-                        </div>
+                            {/* <!-- Form submissions success message --> */}
+                            <div className="d-none" id="submitSuccessMessage">
+                                <div className="text-center mb-3">Form submission successful!</div>
+                            </div>
 
-                        {/* <!-- Form submissions error message --> */}
-                        <div className="d-none" id="submitErrorMessage">
-                            <div className="text-center text-danger mb-3">Error sending message!</div>
-                        </div>
+                            {/* <!-- Form submissions error message --> */}
+                            <div className="d-none" id="submitErrorMessage">
+                                <div className="text-center text-danger mb-3">Error sending message!</div>
+                            </div>
 
-                        {/* <!-- Form submit button --> */}
-                        <div className="d-grid">
-                            <button className={`btn ${classes.btnCustom} btn-lg`} type="submit" disabled={isAble ? false : true}>Submit</button>
-                        </div>
+                            {/* <!-- Form submit button --> */}
+                            <div className="d-grid">
+                                <button className={`btn ${classes.btnCustom} btn-lg`} type="submit" disabled={isAble ? false : true}>Submit</button>
+                            </div>
 
-                    </form>}
+                        </form>}
 
+                    </div>
                 </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </>
     )
 
 }
