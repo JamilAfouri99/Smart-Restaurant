@@ -1,10 +1,12 @@
 import Footer from '../Home/Footer/Footer'
 import Header from '../Home/Header/Header'
 import classes from './ContactUs.module.css'
-import React, { useState, useEffect } from 'react'
-import { useHistory, Prompt } from 'react-router-dom'
+import React, { useState, useEffect, useContext } from 'react'
+import { useHistory, Prompt } from 'react-router-dom';
+import Authentication from '../../Support/auth-context';
 const ContactUs = () => {
-    const history = useHistory()
+    const history = useHistory();
+    const authCtx = useContext(Authentication)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
@@ -15,6 +17,7 @@ const ContactUs = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
     const [isEntered, setIsEntered] = useState(false)
+    const [alert, setAlert] = useState(false)
 
     // Start Validation Data 
     const handleName = (data) => {
@@ -28,10 +31,8 @@ const ContactUs = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        handlePOSTData()
+        checkLoggedIn()
         // console.log({ name, email, message })
-        setName(''); setEmail(''); setMessage('');
-        setInName(null); setInEmail(null); setInMessage(null);
     }
     useEffect(() => {
         name.trim().length > 8 && email.includes('@') && message.trim().length > 0 ? setIsAble(true) : setIsAble(false)
@@ -45,9 +46,20 @@ const ContactUs = () => {
     const handleBlurMessage = () => {
         message.trim().length <= 0 ? setInMessage(true) : setInMessage(false)
     }
-    // End Validation Data 
+    // End Validation Data
+    const checkLoggedIn=()=>{
+        authCtx.isLogedIn? handlePOSTData():
+        setAlert(true);
+        setIsEntered(false);
+    }
+    const handleToSignIn=()=>{
+        setAlert(false)
+        history.replace('/auth')
+    } 
     // Start Send Data 
     const handlePOSTData = async () => {
+        setName(''); setEmail(''); setMessage('');
+        setInName(null); setInEmail(null); setInMessage(null);
         setIsEntered(false)
         setIsLoading(true)
         try {
@@ -77,9 +89,15 @@ const ContactUs = () => {
     let ContactUsData = <h1>{'Contact Us'.toUpperCase()}</h1>
     return (
         <>
-            <Prompt when={isEntered} message={()=>'Sure ? You will lose your data if you go back! '}/>
+            <Prompt when={isEntered} message={() => 'Sure ? You will lose your data if you go back! '} />
             <div className={classes.ContactUs}>
                 <Header Header={classes.ContactUsHeader} Container={classes.backContainer} TypingBox={classes.ContactUsTypingBox} data={ContactUsData} />
+                {alert && <div id="loginAlert" style={{ margin: 'auto', width: '65%' }} class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Alert!</strong> You have to sign in before submit your order.
+                    <button type="button" style={{ background: 'none', border: 'none', float: 'right', fontWeight: 'bold', color: '#664d03' }} onClick={handleToSignIn}>
+                        SIGN IN
+                    </button>
+                </div>}
                 <div className={`container pt-4 ${classes.FormBack}`} style={{ width: '100%' }}>
                     <div className={`container py-4 mt-4 ${classes.formContainer} ${!isLoading ? 'text-left' : 'text-center'}`}>
 

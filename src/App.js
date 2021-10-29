@@ -9,6 +9,8 @@ import Shop from './Pages/Shop/Shop';
 import TotalNum from './Support/menu-items-context'
 import React,{useState} from 'react';
 import Modal from './Modals/Modal';
+import Auth from './Pages/Auth/Auth';
+import Profile from './Pages/Home/Profile/Profile';
 
 function App() {
   const [menu,setMenu]=useState([])
@@ -31,15 +33,18 @@ function App() {
   return (
     <div className="App">
       <TotalNum.Provider value={{Total_Items:menu}}>
-        <Route path="/"><Redirect to="/home"/></Route>
-        <Route path="/home" exact><Home /></Route>
-        <Route path="/menu"><Menu /></Route>
-        <Route path="/aboutus"><AboutUs /></Route>
-        <Route path="/blog"><Blog /></Route>
-        <Route path="/contactus"><ContactUs /></Route>
-        <Route path="/shop"><Shop Items={handleDataFromShop} TheNewArray={menu}/></Route>
-        {/* <button type="button" onClick={Handle}>Launch modal</button> */}
-        <Modal handleIncItem={handleIncreaseItems} handleDeccItem={handleDecreaseItems} handleRemoveItem={handleRemoveItems}/>
+        <Switch>
+          <Route path="/" exact><Redirect to="/home"/></Route>
+          <Route path="/home" ><Home /></Route>
+          <Route path="/menu"><Menu /></Route>
+          <Route path="/aboutus"><AboutUs /></Route>
+          <Route path="/blog"><Blog /></Route>
+          <Route path="/contactus"><ContactUs /></Route>
+          <Route path="/shop"><Shop Items={handleDataFromShop} TheNewArray={menu}/></Route>
+          <Route path="/auth"><Auth/></Route>
+          <Route path="/profile"><Profile/></Route>
+          <Modal handleIncItem={handleIncreaseItems} handleDeccItem={handleDecreaseItems} handleRemoveItem={handleRemoveItems}/>
+        </Switch>
       </TotalNum.Provider>
     </div>
   );

@@ -1,0 +1,115 @@
+.AuthHeader{
+    background-image: url(https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/09/page-title-main.jpg);
+    background-repeat: no-repeat;
+    background-color: rgba(167, 166, 166, 0.582);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height:40vh;
+    position: relative;
+    display: block;
+    transition: all 0.54s ease-in-out;
+}
+.Form{
+    margin-top:2rem;
+    border-radius: 4px;
+    color: white;
+    background: #081528;
+    padding: 3rem;
+    transition: all 0.5s ease-in-out ;
+}
+.backContainer{
+    height:100%;
+    width:40%;
+    transition: all 0.54s ease-in-out;
+}
+.AuthTypingBox{
+    width: 100%;
+    height: 50%;
+    color: rgb(247, 247, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.54s ease-in-out;
+    position: absolute;
+    top: 35%;
+}
+.FormBack{
+    position: relative;
+    box-sizing: border-box;
+    height: auto; 
+    padding-top: 0px !important;
+    padding-bottom: 70px !important;
+    background-image: url(https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/09/about-bg-1.png?id=6705) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background: fixed;
+}
+.btnCustom {
+    color: #081528;
+    background-color: white !important;
+    border-color: white !important;
+}
+.btnCustom:hover {
+    opacity: 0.9;
+}
+.btnCustom:active {
+    transform: scale(0.97);
+}
+.btnAuth {
+    color: #081528;;
+    background-color: white !important;
+    border-color: white !important;
+    width: 50%;
+    font-weight: bold;
+}
+.btnAuth:hover {
+    opacity: 0.9;
+}
+.notValid{
+    background: #ffdfdf;
+    border: 3px solid #df1313ab;
+    transition: all 0.2s ease-in-out;
+}
+.Valid{
+    /* background: rgba(255, 255, 255, 0.877); */
+    background: white;
+    border: 3px solid #09a504ab;
+    transition: all 0.2s ease-in-out;
+}
+.BeforeCheck{
+    background: none;
+    border: 1px solid #b7b7b7;
+    transition: all 0.2s ease-in-out;
+}
+.formContainer{
+    width:60% !important;
+    transition: all 0.3s ease-in-out;
+}
+.errorAlarm{
+    margin: auto;
+    text-align: center;
+    width: 70%;
+    transition: all 1s ease-in-out !important;
+}
+.switchBtn{
+    background: none;
+    border: none;
+    color: #c59d5f;
+    font-weight: bold;
+}
+
+@media screen and (max-width:990px) {
+    .formContainer{
+        width:80% !important;
+        transition: all 0.3s ease-in-out;
+    }
+}
+@media screen and (max-width:700px) {
+    .formContainer{
+        width:90% !important;
+        transition: all 0.3s ease-in-out;
+    }
+}

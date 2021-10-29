@@ -3,13 +3,16 @@ import ModalItem from './ModalItem'
 import MenuItems from '../Support/menu-items-context'
 import React, { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import Authentication from '../Support/auth-context'
 
 const Modal = (props) => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [alert, setAlert] = useState(false);
     const history = useHistory()
     const myOrder = useContext(MenuItems);
+    const authCtx = useContext(Authentication);
     const IncreaseItemHandler = (data) => {
         const UpdateOrderFromModal = myOrder.Total_Items.filter((item) => {
             item.id === data.id && item.ItemNumber++
@@ -38,6 +41,14 @@ const Modal = (props) => {
         })
     }, [myOrder]);
     // Satrt Posting Data
+    const checkLogged = () => {
+        authCtx.isLogedIn ? handlePostData():setAlert(true)
+    }
+    const handleToSignIn=()=>{
+        setAlert(false);
+        document.getElementById("ExitModal").click();
+        history.replace('/auth')
+    }
     const handlePostData = async () => {
         setIsLoading(true)
         try {
@@ -52,7 +63,7 @@ const Modal = (props) => {
             if (!response.ok) {
                 throw 'Faild send data'
             }
-            document.getElementById("ExitModal").click();            
+            document.getElementById("ExitModal").click();
             myOrder.Total_Items = [];
             history.push('/home');
         } catch (error) {
@@ -64,6 +75,12 @@ const Modal = (props) => {
     // End Posting Data
     return (
         <div className="modal fade" role="dialog" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            {alert&&<div id="loginAlert" style={{margin:'auto',width:'65%'}} class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Alert!</strong> You have to sign in before submit your order.
+                <button type="button" style={{background:'none',border:'none',float:'right',fontWeight:'bold',color:'#664d03'}} onClick={handleToSignIn}>
+                    SIGN IN
+                </button>
+            </div>}
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -89,9 +106,9 @@ const Modal = (props) => {
                     </div>}
 
                     {myOrder.Total_Items.length === 0 && !isLoading && !error && <p style={{ padding: '2rem', textAlign: 'center', fontSize: '1.2rem', fontWeight: 'bold', color: '#081528' }}>There is no Item choosed</p>}
-                    
+
                     {error !== null && <p style={{ textAlign: 'center', color: '#e10000', fontSize: '1.3rem', margin: '2rem', fontWeight: 'bold' }}>{error}</p>}
-                    
+
                     {isLoading && <div className="spinner-grow" role="status" style={{ padding: '1rem', textAlign: 'center', fontSize: '1.1rem', fontWeight: 'bold', color: '#081528', alignSelf: 'center', margin: '2rem' }}>
                         <span className="sr-only">Loading...</span>
                     </div>}
@@ -103,7 +120,7 @@ const Modal = (props) => {
                         </div>
                         <div className={`footer ${classes.controlFooter}`}>
                             <button id="ExitModal" type="button" className="btn btn-secondary" data-bs-dismiss="modal" style={{ margin: '0rem 1rem 0rem 0rem', }}>Close</button>
-                            <button type="button" className={`btn ${classes.btnCustom}`} style={{ width: '57%' }} disabled={myOrder.Total_Items.length === 0 || totalPrice == 0 ? true : false} onClick={handlePostData}>Order</button>
+                            <button type="button" className={`btn ${classes.btnCustom}`} style={{ width: '57%' }} disabled={myOrder.Total_Items.length === 0 || totalPrice == 0 ? true : false} onClick={checkLogged}>Order</button>
                         </div>
                     </div>
                 </div>
