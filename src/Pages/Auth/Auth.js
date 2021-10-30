@@ -106,7 +106,7 @@ const Auth = () => {
 		setIsEntered(true)
 	}
 
-	let ContactUsData = <h1>{'login page'.toUpperCase()}</h1>
+	let ContactUsData = !isSignUp ? <h1>LOGIN PAGE</h1>:<h1>SIGN UP PAGE</h1>
 	return (
 		<>
 			<Prompt when={isEntered} message={() => 'Sure? You will lose your data if you go back!'} />

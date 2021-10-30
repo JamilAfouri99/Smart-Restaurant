@@ -7,12 +7,14 @@ import Blog from './Pages/Blog/Blog';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import Shop from './Pages/Shop/Shop';
 import TotalNum from './Support/menu-items-context'
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import Modal from './Modals/Modal';
 import Auth from './Pages/Auth/Auth';
 import Profile from './Pages/Home/Profile/Profile';
+import Authentication from './Support/auth-context';
 
 function App() {
+  const authCtx = useContext(Authentication)
   const [menu,setMenu]=useState([])
   const handleDataFromShop=(data)=>{
     setMenu(data)
@@ -42,7 +44,8 @@ function App() {
           <Route path="/contactus"><ContactUs /></Route>
           <Route path="/shop"><Shop Items={handleDataFromShop} TheNewArray={menu}/></Route>
           <Route path="/auth"><Auth/></Route>
-          <Route path="/profile"><Profile/></Route>
+          {authCtx.isLogedIn&&<Route path="/profile"><Profile/></Route>}
+          <Route path="*"><Redirect to="/home"/></Route>
           <Modal handleIncItem={handleIncreaseItems} handleDeccItem={handleDecreaseItems} handleRemoveItem={handleRemoveItems}/>
         </Switch>
       </TotalNum.Provider>

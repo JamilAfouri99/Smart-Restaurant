@@ -8,7 +8,7 @@ const Home=()=>{
     let Data=<h1>A Fascinating <br />Flavour Experience</h1>
     return(
         <div className={classes.Home}>
-            <Header Header={classes.BodyHeader} Container={classes.backContainer}  TypingBox={classes.HomeTypingBox} data={Data}/> 
+            <Header alert='From Header' Header={classes.BodyHeader} Container={classes.backContainer}  TypingBox={classes.HomeTypingBox} data={Data}/> 
             <Body/>
             <Footer/>
         </div>
