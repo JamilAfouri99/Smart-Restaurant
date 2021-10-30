@@ -32,12 +32,12 @@ function App() {
   return (
     <div className="App">
       <TotalNum.Provider value={{ Total_Items: menu }}>
-        <Suspense fallback={<div class="d-flex justify-content-center align-items-center">
-          <div class="spinner-border" role="status" style={{width:'5rem',height:'5rem'}}>
-            <span class="sr-only">Loading...</span>
+        <Suspense fallback={<div className="d-flex justify-content-center align-items-center">
+          <div className="spinner-border" role="status" style={{width:'5rem',height:'5rem'}}>
+            <span className="sr-only">Loading...</span>
           </div>
         </div>}>
-          <Switch>
+          {/* <Switch> */}
             <Route path="/" exact><Redirect to="/home" /></Route>
             <Route path="/home" ><Home /></Route>
             <Route path="/menu"><Menu /></Route>
@@ -49,7 +49,7 @@ function App() {
             {authCtx.isLogedIn && <Route path="/profile"><Profile /></Route>}
             <Route path="*"><Redirect to="/home" /></Route>
             <Modal handleIncItem={handleIncreaseItems} handleDeccItem={handleDecreaseItems} handleRemoveItem={handleRemoveItems} />
-          </Switch>
+          {/* </Switch> */}
         </Suspense>
       </TotalNum.Provider>
     </div>
