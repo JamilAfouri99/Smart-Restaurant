@@ -12,25 +12,25 @@ const MenuBody = () => {
             </div>
             <div className=''>
                 <div className="row justify-content-center">
-                    <div className="col-xl-3 col-lg-6 col-md-12 pb-2 p-0">
+                    <div className="col-xl-3 col-lg-6 col-md-12 pb-2 p-0" data-aos="fade-down" data-aos-duration="1000">
                         <div></div>
                         <img width='300px' height='400' src="https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2013/06/pp-shop-tab8-500x752.jpg" className="rounded mx-auto d-block" alt="..." />
                         <p>Chicken Soup</p>
                         <span>$30</span>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 pb-2 p-0">
+                    <div className="col-xl-3 col-lg-6 col-md-12 pb-2 p-0" data-aos="fade-up" data-aos-duration="1000">
                         <div></div>
                         <img width='300px' height='400' src="https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2013/06/shop-tab7-1-532x800.jpg" className="rounded mx-auto d-block" alt="..." />
                         <p>Oatmeal Cookie</p>
                         <span>$10</span>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 pb-2 p-0">
+                    <div className="col-xl-3 col-lg-6 col-md-12 pb-2 p-0" data-aos="fade-down" data-aos-duration="1000">
                         <div></div>
                         <img width='300px' height='400' src="https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2013/06/pp-shop-tab4-500x752.jpg" className="rounded mx-auto d-block" alt="..." />
                         <p>Pizza Pane</p>
                         <span>$22</span>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-md-12 pb-2 p-0">
+                    <div className="col-xl-3 col-lg-6 col-md-12 pb-2 p-0" data-aos="fade-up" data-aos-duration="1000">
                         <div></div>
                         <img width='300px' height='400' src="https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2013/06/shop-tab11-1-532x800.jpg" className="rounded mx-auto d-block" alt="..." />
                         <p>Vegetable Pasta</p>

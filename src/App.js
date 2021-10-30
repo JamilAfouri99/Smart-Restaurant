@@ -1,53 +1,56 @@
 import './App.css';
-import Home from './Pages/Home/Home';
-import Menu from './Pages/Menu/Menu';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import AboutUs from './Pages/AboutUs/AboutUs';
-import Blog from './Pages/Blog/Blog';
-import ContactUs from './Pages/ContactUs/ContactUs';
-import Shop from './Pages/Shop/Shop';
+import React, { useState, useContext, Suspense } from 'react';
 import TotalNum from './Support/menu-items-context'
-import React,{useState,useContext} from 'react';
-import Modal from './Modals/Modal';
-import Auth from './Pages/Auth/Auth';
-import Profile from './Pages/Home/Profile/Profile';
 import Authentication from './Support/auth-context';
+
+const Home = React.lazy(() => import('./Pages/Home/Home'));
+const Menu = React.lazy(() => import('./Pages/Menu/Menu'));
+const AboutUs = React.lazy(() => import('./Pages/AboutUs/AboutUs'));
+const Blog = React.lazy(() => import('./Pages/Blog/Blog'));
+const ContactUs = React.lazy(() => import('./Pages/ContactUs/ContactUs'));
+const Shop = React.lazy(() => import('./Pages/Shop/Shop'));
+const Modal = React.lazy(() => import('./Modals/Modal'));
+const Auth = React.lazy(() => import('./Pages/Auth/Auth'));
+const Profile = React.lazy(() => import('./Pages/Home/Profile/Profile'));
 
 function App() {
   const authCtx = useContext(Authentication)
-  const [menu,setMenu]=useState([])
-  const handleDataFromShop=(data)=>{
-    setMenu(data)
-    // console.log('Data Reached from MENU',data)
-  }
-  const handleIncreaseItems=(data)=>{
-    // console.log('Data increased from MODAL',data)
+  const [menu, setMenu] = useState([])
+  const handleDataFromShop = (data) => {
     setMenu(data)
   }
-  const handleDecreaseItems=(data)=>{
-    // console.log('Data decreased from MODAL',data)
+  const handleIncreaseItems = (data) => {
     setMenu(data)
   }
-  const handleRemoveItems=(data)=>{
-    // console.log('Data Removed from MODAL',data)
+  const handleDecreaseItems = (data) => {
+    setMenu(data)
+  }
+  const handleRemoveItems = (data) => {
     setMenu(data)
   }
   return (
     <div className="App">
-      <TotalNum.Provider value={{Total_Items:menu}}>
-        <Switch>
-          <Route path="/" exact><Redirect to="/home"/></Route>
-          <Route path="/home" ><Home /></Route>
-          <Route path="/menu"><Menu /></Route>
-          <Route path="/aboutus"><AboutUs /></Route>
-          <Route path="/blog"><Blog /></Route>
-          <Route path="/contactus"><ContactUs /></Route>
-          <Route path="/shop"><Shop Items={handleDataFromShop} TheNewArray={menu}/></Route>
-          <Route path="/auth"><Auth/></Route>
-          {authCtx.isLogedIn&&<Route path="/profile"><Profile/></Route>}
-          <Route path="*"><Redirect to="/home"/></Route>
-          <Modal handleIncItem={handleIncreaseItems} handleDeccItem={handleDecreaseItems} handleRemoveItem={handleRemoveItems}/>
-        </Switch>
+      <TotalNum.Provider value={{ Total_Items: menu }}>
+        <Suspense fallback={<div class="d-flex justify-content-center align-items-center">
+          <div class="spinner-border" role="status" style={{width:'5rem',height:'5rem'}}>
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>}>
+          <Switch>
+            <Route path="/" exact><Redirect to="/home" /></Route>
+            <Route path="/home" ><Home /></Route>
+            <Route path="/menu"><Menu /></Route>
+            <Route path="/aboutus"><AboutUs /></Route>
+            <Route path="/blog"><Blog /></Route>
+            <Route path="/contactus"><ContactUs /></Route>
+            <Route path="/shop"><Shop Items={handleDataFromShop} TheNewArray={menu} /></Route>
+            <Route path="/auth"><Auth /></Route>
+            {authCtx.isLogedIn && <Route path="/profile"><Profile /></Route>}
+            <Route path="*"><Redirect to="/home" /></Route>
+            <Modal handleIncItem={handleIncreaseItems} handleDeccItem={handleDecreaseItems} handleRemoveItem={handleRemoveItems} />
+          </Switch>
+        </Suspense>
       </TotalNum.Provider>
     </div>
   );

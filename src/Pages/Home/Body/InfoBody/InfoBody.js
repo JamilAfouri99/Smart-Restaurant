@@ -2,8 +2,8 @@ import classes from './InfoBody.module.css'
 
 const InfoBody = () => {
     return (
-        <div className={`${classes.InfoBody} container`}>
-            <img width="189" height="128" src="https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/10/our-histry.png" className="vc_single_image-img attachment-medium" alt="" loading="lazy" />
+        <div className={`${classes.InfoBody} container`} >
+            <img data-aos="zoom-in-down" width="189" height="128" src="https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/10/our-histry.png" className="vc_single_image-img attachment-medium" alt="" loading="lazy" />
             <h2 style={{fontSize:'50px',color:'#252525',lineHeight:'60px',textAlign: 'center',fontFamily:'Yesteryear',fontWeight:'400',fontStyle:'normal'}} className="vc_custom_heading vc_custom_1570885804889">Palmplaza Story</h2>
             <div className="section-title-wrapper mb-4 text-center shortcode-rand-33 palmplaza-inline-css">
                 <div className="title-wrap">
