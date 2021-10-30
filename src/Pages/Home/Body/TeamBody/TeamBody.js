@@ -23,7 +23,7 @@ const TeamBody = () => {
                             <p>COORDINATOR</p>
                         </div>
                     </div>
-                    <div className="col-md-4 col-sm-6">
+                    <div className="col-md-4 col-sm-6" id="TeamBody">
                         <span></span>
                         <img src="https://demo.zozothemes.com/palmplaza/wp-content/uploads/sites/41/2019/06/chef_team_3-1.jpg" className="rounded mx-auto d-block" alt="..." />
                         <div>

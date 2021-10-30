@@ -19,7 +19,9 @@
     position: relative;
     display: block;
     transition: all 0.54s ease-in-out;
+
 }
+
 .backContainer{
     height:100%;
     width:40%;

@@ -24,7 +24,7 @@ const NavBar = () => {
         setIsLight(true)
       }
     });
-  },[window.scrollY])
+  },[])
   return (
     <>
       <nav className={isLight ? classes.bgLight : classes.bgDark}>
@@ -41,22 +41,22 @@ const NavBar = () => {
                   <li><NavLink activeClassName={classes.active} to="/shop">SHOP</NavLink></li>
                   <li><NavLink activeClassName={classes.active} to="/contactus">CONTACT US</NavLink></li>
                   {authCtx.isLogedIn ?<li>
-                    <i class="fas fa-chevron-circle-down"></i>
+                    <i className="fas fa-chevron-circle-down"></i>
                     <div className={classes.dropInfo}>
                       <ul className="d-flex flex-column pt-4">
                         <li>
-                          <i class="fas fa-user-circle"></i>
+                          <i className="fas fa-user-circle"></i>
                           <Link to="/profile">Profile</Link>
                         </li>
                         <li>
-                          <i class="fas fa-sign-out-alt"></i>
+                          <i className="fas fa-sign-out-alt"></i>
                           <button className={classes.LogoutBtn} onClick={handleLogout}><a>Logout</a></button>
                         </li>
                       </ul>
                     </div>
                   </li>
                   :<li>
-                    <NavLink className="p-0" activeClassName={classes.active} to="/auth" title="Login"><i class="fas fa-sign-in-alt"></i></NavLink>
+                    <NavLink className="p-0" activeClassName={classes.active} to="/auth" title="Login"><i className="fas fa-sign-in-alt"></i></NavLink>
                     </li>
                   }
                       

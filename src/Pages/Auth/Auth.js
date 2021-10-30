@@ -71,6 +71,7 @@ const Auth = () => {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
+					name:name,
 					email: email,
 					password: pass,
 					returnSecureToken: true
@@ -111,7 +112,7 @@ const Auth = () => {
 			<Prompt when={isEntered} message={() => 'Sure? You will lose your data if you go back!'} />
 			<div className={classes.Auth}>
 				<Header Header={classes.AuthHeader} Container={classes.backContainer} TypingBox={classes.AuthTypingBox} data={ContactUsData} />
-				{error&&<div class={`alert alert-danger ${classes.errorAlarm}`} role="alert">{error}</div>}
+				{error&&<div className={`alert alert-danger ${classes.errorAlarm}`} role="alert">{error}</div>}
 				<div className={`container pt-4 ${classes.FormBack}`} style={{ width: '100%' }}>
 					<div className={`container py-4 mt-4 ${classes.formContainer} ${!isLoading ? 'text-left' : 'text-center'}`}>
 

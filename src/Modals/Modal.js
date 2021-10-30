@@ -75,7 +75,7 @@ const Modal = (props) => {
     // End Posting Data
     return (
         <div className="modal fade" role="dialog" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            {alert&&<div id="loginAlert" style={{margin:'auto',width:'65%'}} class="alert alert-warning alert-dismissible fade show" role="alert">
+            {alert&&<div id="loginAlert" style={{margin:'auto',width:'65%'}} className="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Alert!</strong> You have to sign in before submit your order.
                 <button type="button" style={{background:'none',border:'none',float:'right',fontWeight:'bold',color:'#664d03'}} onClick={handleToSignIn}>
                     SIGN IN

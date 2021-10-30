@@ -92,7 +92,7 @@ const ContactUs = () => {
             <Prompt when={isEntered} message={() => 'Sure ? You will lose your data if you go back! '} />
             <div className={classes.ContactUs}>
                 <Header Header={classes.ContactUsHeader} Container={classes.backContainer} TypingBox={classes.ContactUsTypingBox} data={ContactUsData} />
-                {alert && <div id="loginAlert" style={{ margin: 'auto', width: '65%' }} class="alert alert-warning alert-dismissible fade show" role="alert">
+                {alert && <div id="loginAlert" style={{ margin: 'auto', width: '65%' }} className="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong>Alert!</strong> You have to sign in before submit your order.
                     <button type="button" style={{ background: 'none', border: 'none', float: 'right', fontWeight: 'bold', color: '#664d03' }} onClick={handleToSignIn}>
                         SIGN IN

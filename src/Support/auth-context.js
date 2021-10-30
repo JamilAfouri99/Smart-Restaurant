@@ -10,15 +10,18 @@ const Authentication=React.createContext({
 )
 
 export const AuthProvider=(props)=>{
-    const [Token,setToken]=useState(null)
+    const tokenStorage=localStorage.getItem('token');
+    const [Token,setToken]=useState(tokenStorage)
     const [email,setEmail]=useState('')
     const userIsLogedIn = !!Token
     const handleLogin=(token,email)=>{
         setToken(token);
         setEmail(email)
+        localStorage.setItem('token',token)
     }
     const handleLogout=()=>{
-        setToken(null)
+        setToken(null);
+        localStorage.removeItem('token')
     }
     const contextData={
         token:Token,
